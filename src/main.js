@@ -8,11 +8,10 @@ import routes from './router/routes'
 import store from './vuex/store'
 import Vuex from 'vuex'
 import echarts from 'echarts'
-import axios from './api/axios.js'
+import Axios from './api/axios.js'
 
 import Mock from './mock'
 Mock.bootstrap();
-
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
@@ -20,7 +19,7 @@ Vue.use(Vuex)
 
 
 // 将API方法绑定到全局
-Vue.prototype.$api = axios;
+Vue.prototype.$axios = Axios;
 Vue.prototype.$echarts = echarts;
 
 const router = new VueRouter({
@@ -35,7 +34,7 @@ router.beforeEach((to, from, next) => {
 //	let user = JSON.parse(sessionStorage.getItem('user'));
 //	if (!user && to.path != '/login') {
 //	    next({ path: '/login' })
-//	} else {
+//	} else {	
 //	    next()
 //	}
 

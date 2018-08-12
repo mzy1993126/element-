@@ -9,6 +9,7 @@ import user from '@/views/nav1/user';
 import Page4 from '@/views/nav2/Page4';
 import Page5 from '@/views/nav2/Page5';
 import Page6 from '@/views/nav3/Page6';
+import Page7 from '@/views/nav2/Page7';
 import echarts from '@/views/charts/echarts';
 
 let routes = [
@@ -43,7 +44,8 @@ let routes = [
         iconCls: 'el-icon-upload',//图标样式class
         children: [
             { path: '/page4', component: Page4, name: '页面4' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/page5', component: Page5, name: '页面5' },
+			{ path: '/page7', component: Page7, name: '页面7' }
         ]
     },
     {

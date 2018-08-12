@@ -40,40 +40,40 @@
 			}
 		},
 		mounted(){
-			this.$api.get('s.json',{},function(data){
-				console.log(data)
-			},function(err){
-				console.log(err)
-			})
+			
 		},
 		methods:{
 			 fileImage(e){
-				var file = e.target.files[0];
-				var imgSize=file.size/1024;
+				 console.log(e)
+				let file = e.target.files[0];
+				let imgSize=file.size/1024;
+				
 				if(imgSize>20000){
-					alert('请上传大小不要超过200KB的图片')
+					
+					this.$message({
+					  message: '请上传大小不要超过200KB的图片',
+					  type: 'warning'
+					});
+					
 				}else{
-					var reader = new FileReader();
+					
+					let reader = new FileReader();
 					reader.readAsDataURL(file); // 读出 base64
 					reader.onloadend = () =>{
-						// 图片的 base64 格式, 可以直接当成 img 的 src 属性值        
-						var dataURL = reader.result;
+						// 图片的 base64 格式, 可以直接当成 img 的 src 属性值     
+						let dataURL = reader.result;
 						// 下面逻辑处理
-						this.imgArr.push(dataURL)
+						this.imgArr.push(dataURL);
 					};
 				}
 			},
-			indexImg(index) {
+			indexImg(index) {  //  删除
 				this.imgArr.splice(index,1);
 			},
-			imgMaxFn(item) {
+			imgMaxFn(item) { // 放大
 				this.dialogVisible = true;
 				this.dialogimg = item;
 			},
-			
-			
-			
-			
 			handleClose(done) {
 				 done()
 			}
@@ -142,13 +142,6 @@
 		margin: 0 5px;
 		font-size: 18px;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	.maxImg{
